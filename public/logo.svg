@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Simple placeholder logo, copy or replace with your real logo -->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <rect width="256" height="256" fill="#22C55E" rx="32" />
+  <text x="50%" y="50%" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="700" fill="#fff" text-anchor="middle" dominant-baseline="central">NoOnes</text>
+</svg>

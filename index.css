@@ -1,0 +1,23 @@
+/* Basic placeholder stylesheet - replace or extend with your app styles */
+:root {
+  --bg: #ffffff;
+  --text: #111827;
+}
+html, body, #root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Utility to visually confirm build applied CSS */
+#root:empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #666;
+}
