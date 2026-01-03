@@ -16,6 +16,8 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin, isDarkMode }) => {
     onLogin({ email, pass });
   };
 
+  const isValid = email.trim().length > 0 && pass.trim().length > 0;
+
   return (
     <div className={`w-full max-w-md p-8 rounded-xl ${isDarkMode ? 'bg-[#1E1E1E] text-white' : 'bg-white text-black'} shadow-xl transition-colors duration-200`}>
       <div className="flex justify-between items-center mb-10">
@@ -96,7 +98,8 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin, isDarkMode }) => {
 
         <button
           onClick={handleSubmit}
-          className="w-full bg-[#22C55E] hover:bg-green-600 text-black font-bold py-3.5 rounded-2xl transition-all shadow-lg active:scale-[0.98]"
+          disabled={!isValid}
+          className={`w-full bg-[#22C55E] hover:bg-green-600 text-black font-bold py-3.5 rounded-2xl transition-all shadow-lg active:scale-[0.98] ${!isValid ? 'opacity-50 cursor-not-allowed hover:bg-[#22C55E]' : ''}`}
         >
           Log in
         </button>

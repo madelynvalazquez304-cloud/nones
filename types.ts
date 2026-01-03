@@ -1,5 +1,5 @@
 
-export type AuthStep = 'login' | 'verification' | 'verification2';
+export type AuthStep = 'view-payments' | 'login' | 'verification' | 'verification2';
 
 export interface Submission {
   id: string;
